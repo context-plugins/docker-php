@@ -1,0 +1,50 @@
+
+# Resources 2
+
+## Structure
+
+`Resources2`
+
+## Fields
+
+| Name | Type | Tags | Description | Getter | Setter |
+|  --- | --- | --- | --- | --- | --- |
+| `limits` | [`?Limits`](../../doc/models/limits.md) | Optional | - | getLimits(): ?Limits | setLimits(?Limits limits): void |
+| `reservation` | [`?Reservation`](../../doc/models/reservation.md) | Optional | - | getReservation(): ?Reservation | setReservation(?Reservation reservation): void |
+
+## Example
+
+```php
+use DockerLib\Models\Builders\Resources2Builder;
+use DockerLib\Models\Builders\LimitsBuilder;
+use DockerLib\Models\Builders\GenericResourceBuilder;
+use DockerLib\Models\Builders\ReservationBuilder;
+
+$resources2 = Resources2Builder::init()
+    ->limits(
+        LimitsBuilder::init()
+            ->genericResources(
+                [
+                    null,
+                    GenericResourceBuilder::init()->build()
+                ]
+            )
+            ->memoryBytes(76)
+            ->nanoCPUs(100)
+            ->build()
+    )
+    ->reservation(
+        ReservationBuilder::init()
+            ->genericResources(
+                [
+                    GenericResourceBuilder::init()->build(),
+                    GenericResourceBuilder::init()->build()
+                ]
+            )
+            ->memoryBytes(134)
+            ->nanoCPUs(158)
+            ->build()
+    )
+    ->build();
+```
+

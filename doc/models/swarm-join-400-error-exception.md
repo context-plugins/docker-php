@@ -1,0 +1,25 @@
+
+# Swarm Join 400 Error Exception
+
+## Structure
+
+`SwarmJoin400ErrorException`
+
+## Fields
+
+| Name | Type | Tags | Description | Getter | Setter |
+|  --- | --- | --- | --- | --- | --- |
+| `message` | `string` | Required | The error message. | getMessage(): string | setMessage(string message): void |
+
+## Example
+
+```php
+try {
+    // make the API call
+} catch (SwarmJoin400ErrorException $exp) {
+    echo 'Caught SwarmJoin400ErrorException:', $exp;
+} catch (ApiException $exp) {
+    echo 'Caught ApiException:', $exp;
+}
+```
+
